@@ -2,7 +2,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
 
 import logo from '../logo.svg'
-import { ShoppingPage } from '../02-component-patterns/pages/ShoppingPage';
+import { RegisterPage } from '../03-forms/pages/RegisterPage';
 
 export const Navigation = () => {
   return (
@@ -12,7 +12,7 @@ export const Navigation = () => {
           <img src={logo} alt="React Logo" />
           <ul>
             <li>
-              <NavLink to="/" className={({ isActive }) => isActive ? 'nav-active' : ''}>Shopping</NavLink>
+              <NavLink to="/register" className={({ isActive }) => isActive ? 'nav-active' : ''}>Register</NavLink>
             </li>
             <li>
               <NavLink to="/about" className={({ isActive }) => isActive ? 'nav-active' : ''}>About</NavLink>
@@ -23,12 +23,10 @@ export const Navigation = () => {
           </ul>
         </nav>
 
-
         <Routes>
+          <Route path="/register" element={<RegisterPage/>} />
           <Route path="about" element={<h1>About Page</h1>} />
           <Route path="users" element={<h1>Users Page</h1>} />
-          <Route path="/" element={<ShoppingPage/>} />
-
           <Route path="/*" element={<Navigate to="/home" replace />} />
         </Routes>
 
