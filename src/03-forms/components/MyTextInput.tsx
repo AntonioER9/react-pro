@@ -5,13 +5,13 @@ interface Props {
   name: string;
   type?: 'text' | 'email' | 'password';
   placeholder?: string;
-  [x: string]: any;
+  [x: string]: any; //comodín por cualquier campo adicional que nos envién
 }
 
 
 export const MyTextInput = ({ label, ...props }: Props) => {
 
-  const [field] = useField(props) //name, value, onChange, onBlur
+  const [field] = useField(props) //name, value, onChange, onBlur, onTouched
 
   return (
     <>
